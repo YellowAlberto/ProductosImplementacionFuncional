@@ -36,7 +36,7 @@ public class Product {
                 //.reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, RoundingMode.CEILING); 
 		
 		
-		//Devolver los precios con impuestos usando Integer
+		//Devolver los precios con impuestos usando Double
 		Optional<Double> price = Optional.empty();
 		price = listaProductos.stream().map(product -> product.price + ((product.price * product.tax.percent) / 100)).reduce((x,y) -> x+y);
 		System.out.println("El total es de:" + price.get());
@@ -50,7 +50,7 @@ public class Product {
 		System.out.println(productsStartsWithC);
 			
 		
-		//De acuerdo a la colección de productos dada calcular el total de la compra, en la 
+		//De acuerdo a la colecciÃ³n de productos dada calcular el total de la compra, en la 
 		//cual solo se le sumaran los impuestos incurridos a los precios mayores de 10.
 		Optional<Double> preciosMayoresque10 = Optional.empty();
 		preciosMayoresque10 = listaProductos.stream().filter(product -> product.price > 10)
